@@ -1,0 +1,283 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/fs/student/brianli/ece154a/ece154a_lab4_bli_mristic_olonkar
+vadder
+Z0 !s110 1642274517
+!i10b 1
+!s100 1I[`^WMAYBD;Q:m^e:NAE1
+I9QFA?1750nnFiAgWIdlQ>0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 d/fs/student/brianli/ece154b/ece154b_project1
+Z3 w1642273904
+Z4 8/fs/student/brianli/ece154b/ece154b_project1/other.v
+Z5 F/fs/student/brianli/ece154b/ece154b_project1/other.v
+L0 102
+Z6 OL;L;10.6e;65
+r1
+!s85 0
+31
+Z7 !s108 1642274516.000000
+Z8 !s107 /fs/student/brianli/ece154b/ece154b_project1/other.v|
+Z9 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/fs/student/brianli/ece154b/ece154b_project1/other.v|
+!i113 0
+Z10 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 tCvgOpt 0
+vALU
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 k_i8^Nm_3hFXBIe_jUh7J0
+IPJ;E50cKV=fBCZaEmS_<d3
+R2
+w1642274373
+8/fs/student/brianli/ece154b/ece154b_project1/ALU.v
+F/fs/student/brianli/ece154b/ece154b_project1/ALU.v
+L0 1
+R6
+Z12 !s108 1642274515.000000
+!s107 /fs/student/brianli/ece154b/ece154b_project1/ALU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/fs/student/brianli/ece154b/ece154b_project1/ALU.v|
+!i113 0
+R10
+R11
+n@a@l@u
+vALU_TEST
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 mi>Oa=DNDH3]Pl6E4Ae9g3
+Il51D5lm97H7^aM2lUW>[f3
+R2
+w1642274509
+8/fs/student/brianli/ece154b/ece154b_project1/alu_test.v
+F/fs/student/brianli/ece154b/ece154b_project1/alu_test.v
+L0 3
+R6
+R7
+!s107 /fs/student/brianli/ece154b/ece154b_project1/alu_test.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/fs/student/brianli/ece154b/ece154b_project1/alu_test.v|
+!i113 0
+R10
+R11
+n@a@l@u_@t@e@s@t
+valudec
+R0
+!i10b 1
+!s100 XM:gJ78eE38BQM0Zg_@cS1
+If92j5f_VBn@UaX=cA1Kgm0
+R1
+R2
+R3
+R4
+R5
+L0 49
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+vcontroller
+R0
+!i10b 1
+!s100 gUWCiBVI9cO@Glg>_XCSL1
+Ik08G]Pa2H=EFdoi:TTk[60
+R1
+R2
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+vdmem
+Z13 !s110 1642274516
+!i10b 1
+!s100 V1I=B_[Qme6F]EYmB67[^2
+IGgN;C98S_[Iof1UV<NnLL1
+R1
+R2
+Z14 w1642274074
+Z15 8/fs/student/brianli/ece154b/ece154b_project1/mem.v
+Z16 F/fs/student/brianli/ece154b/ece154b_project1/mem.v
+L0 4
+R6
+r1
+!s85 0
+31
+R12
+Z17 !s107 /fs/student/brianli/ece154b/ece154b_project1/mem.v|
+Z18 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/fs/student/brianli/ece154b/ece154b_project1/mem.v|
+!i113 0
+R10
+R11
+vflopr
+R0
+!i10b 1
+!s100 k6NKzCAb`R>XF;lm3aK]=2
+I0ii0bZnf7>SZ3N^5dQaoC3
+R1
+R2
+R3
+R4
+R5
+L0 117
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+vimem
+R13
+!i10b 1
+!s100 =SS1Tj]`DMH1EUdzQElWQ1
+IK4ADd75X3?aZ@3V[@eh>`0
+R1
+R2
+R14
+R15
+R16
+L0 25
+R6
+r1
+!s85 0
+31
+R12
+R17
+R18
+!i113 0
+R10
+R11
+vimmgen
+R0
+!i10b 1
+!s100 T@G@cSGL`=ADDXFcU^UNU0
+IFClOZNY6EGG>CV^MS=HIm2
+R1
+R2
+R3
+R4
+R5
+L0 112
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+vmaindec
+R0
+!i10b 1
+!s100 5?ZIZb<KGGKYk^F^:<CRR0
+InizdYMeCTRgBicYM55K=82
+R1
+R2
+R3
+R4
+R5
+L0 22
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+vmux2
+R0
+!i10b 1
+!s100 mY3GkJ7FTz:ET>Olh3YYH3
+IlHOof42khl8Mkl<`YXmc[2
+R1
+R2
+R3
+R4
+R5
+L0 132
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+vregfile
+R0
+!i10b 1
+!s100 M4LNGdcbb^MW7A6DnR>g<0
+I37gRi9=Q@Ka=W@7`Tj]3?1
+R1
+R2
+R3
+R4
+R5
+L0 77
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+vsl2
+R0
+!i10b 1
+!s100 QN^`AlUdIUK2_>ci4l?Fc3
+INXeP5?mETad6EXURa_Qa61
+R1
+R2
+R3
+R4
+R5
+L0 107
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11

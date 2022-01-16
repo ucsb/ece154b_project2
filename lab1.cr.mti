@@ -1,0 +1,41 @@
+/fs/student/brianli/ece154b/ece154b_project1/other.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/other.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module controller
+-- Compiling module maindec
+-- Compiling module aludec
+-- Compiling module regfile
+-- Compiling module adder
+-- Compiling module sl2
+-- Compiling module immgen
+-- Compiling module flopr
+-- Compiling module mux2
+
+Top level modules:
+	controller
+	regfile
+	adder
+	sl2
+	immgen
+	flopr
+	mux2
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/mem_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mem_test.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/ALU.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/ALU.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/mem.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mem.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module dmem
+-- Compiling module imem
+
+Top level modules:
+	dmem
+	imem
+
+} {} {}}
