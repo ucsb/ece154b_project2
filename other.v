@@ -136,17 +136,6 @@ module mux2 #(parameter WIDTH=8)
     
     assign y = s ? d1 : d0;  //if s == 1 then assign d1 to y, else y = d0
 endmodule
-
-module multserial(input wire CLK,
-                  input wire RST,
-                  input wire MST,
-                  input wire MSGN,
-                  input wire [31:0] SRCA,
-                  input wire [31:0] SRCB,
-                  output wire [63:0] PROD,
-                  output wire PRODV);
-    always @(posedge CLK) begin
-        if(MST) begin
             
 module multserial(input wire CLK,
                   input wire RST,
