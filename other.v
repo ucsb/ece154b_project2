@@ -154,9 +154,15 @@ module multserial(input wire CLK,
             0: begin //MST was received previous cycle, load registers and go to multiply state (1)
                 P <= 0;
                 PRODV <= 1'b0;
-                temp_b <= b;
-                T[31:0] <= a;
-                T[63:32] <= 32'b0; //each iteration we shift to the right, so that each row of multiplication is calculated correctly
+                if(a > b) begin
+                    temp_b <= b;
+                    T[31:0] <= a;
+                    T[63:32] <= 32'b0; //each iteration we shift to the right, so that each row of multiplication is calculated correctly
+                end else begin 
+                    temp_b <= a;
+                    T[31:0] <= b;
+                    T[63:32] <= 32'b0; //each iteration we shift to the right, so that each row of multiplication is calculated correctly
+                end
                 state <=1;
             end
             1: begin //calculating product
