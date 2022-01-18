@@ -147,18 +147,21 @@ module multserial(input wire CLK,
                   output wire PRODV);
     reg [2:0] state; //3 will be our default state of no change
     reg msgn; //used to store signed or unsigned, as we need it for the last bit of calculation
+  	reg [31:0] A, B;
     reg [63:0] P, T; //product and tempororary registers
     reg [31:0] temp_b; //used to hold B, we will shift right by 1 each multiplication cycle
     reg prodv;
   	assign PRODV = prodv;
   	assign PROD = P;
+  	assign A = SRCA;
+  	assign B = SRCB;
     always @(posedge CLK) begin
         case (state)
             0: begin //MST was received previous cycle, load registers and go to multiply state (1)
                 P <= 0;
                 prodv <= 1'b0;
-                temp_b <= b;
-              	T[31:0] <= a;
+                temp_b <= B;
+              	T[31:0] <= A;
                 T[63:32] <= 32'b0; //each iteration we shift to the right, so that each row of multiplication is calculated correctly
                 state <=1;
             end
