@@ -194,6 +194,9 @@ module multserial(input wire CLK,
                     state <= 4;
                 end else if (MST) begin //next cycle begin multiply (load regs)
                     state <= 1; 
+                  	msgn <= MSGN;
+  					A <= SRCA;
+  					B <= SRCB;
                 end else begin //default state
                     state <= 3;
                 end
@@ -203,6 +206,9 @@ module multserial(input wire CLK,
                     state <= 4;
                 end else if(MST) begin //next cycle begin multiply
                     state <= 1;
+                  	msgn <= MSGN;
+  					A <= SRCA;
+  					B <= SRCB;
                 end else begin 
                     state <= 3;
                 end
@@ -215,12 +221,25 @@ module multserial(input wire CLK,
                 prodv <= 0;
                 if(MST) begin
                     state <= 0;
+                  	msgn <= MSGN;
+  					A <= SRCA;
+  					B <= SRCB;
                 end
                 else begin
                     state <= 3;
                 end
             end
             default: begin
+              if(RST) begin  //reset state sends us to 4
+                    state <= 4;
+                end else if(MST) begin //next cycle begin multiply
+                    state <= 1;
+                  	msgn <= MSGN;
+  					A <= SRCA;
+  					B <= SRCB;
+                end else begin 
+                    state <= 3;
+                end
             end
         endcase
     end
