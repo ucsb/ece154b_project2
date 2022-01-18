@@ -153,9 +153,9 @@ module multserial(input wire CLK,
     reg prodv;
   	assign PRODV = prodv;
   	assign PROD = P;
-  	assign A = SRCA;
-  	assign B = SRCB;
     always @(posedge CLK) begin
+  		A <= SRCA;
+  		B <= SRCB;
         case (state)
             0: begin //MST was received previous cycle, load registers and go to multiply state (1)
                 P <= 0;
@@ -217,7 +217,7 @@ module multserial(input wire CLK,
                     state <= 0;
                 end
                 else begin
-                    state <= 4;
+                    state <= 3;
                 end
             end
             default: begin
