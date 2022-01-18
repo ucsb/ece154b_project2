@@ -1,0 +1,210 @@
+$date
+	Tue Jan 18 00:01:17 2022
+$end
+
+$version
+	Synopsys VCS version Q-2020.03-SP2-6_Full64
+$end
+
+$timescale
+	1ps
+$end
+
+$comment Csum: 1 026413467c8e80e5 $end
+
+
+$scope module CONTROL_TEST $end
+$var reg 1 ! clk $end
+$var reg 6 " op [5:0] $end
+$var reg 6 # fn [5:0] $end
+$var wire 1 $ multstart $end
+$var wire 1 % multsgn $end
+$var wire 1 & aluormult $end
+$var wire 1 ' lohi $end
+$var wire 1 ( regwrite $end
+$var wire 1 ) memwrite $end
+$var wire 1 * memtoreg $end
+$var wire 2 + alusrc [1:0] $end
+$var wire 2 , regdst [1:0] $end
+$var wire 1 - jump $end
+$var wire 1 . jal $end
+$var wire 1 / bne $end
+$var wire 1 0 branch $end
+$var wire 4 1 alucontrol [3:0] $end
+
+$scope module DUT $end
+$var wire 6 " op [5:0] $end
+$var wire 6 # fn [5:0] $end
+$var wire 1 $ multstart $end
+$var wire 1 % multsgn $end
+$var wire 1 & aluormult $end
+$var wire 1 ' lohi $end
+$var wire 1 ( regwrite $end
+$var wire 1 ) memwrite $end
+$var wire 1 * memtoreg $end
+$var wire 2 + alusrc [1:0] $end
+$var wire 2 , regdst [1:0] $end
+$var wire 1 - jump $end
+$var wire 1 . jal $end
+$var wire 1 / bne $end
+$var wire 1 0 branch $end
+$var wire 4 1 alucontrol [3:0] $end
+$var wire 3 2 aluop [2:0] $end
+
+$scope module md $end
+$var wire 6 " op [5:0] $end
+$var wire 1 ( regwrite $end
+$var wire 1 ) memwrite $end
+$var wire 1 0 branch $end
+$var wire 1 * memtoreg $end
+$var wire 2 + alusrc [1:0] $end
+$var wire 2 , regdst [1:0] $end
+$var wire 1 - jump $end
+$var wire 1 . jal $end
+$var wire 1 / bne $end
+$var wire 3 2 aluop [2:0] $end
+$var reg 14 3 controls [13:0] $end
+$upscope $end
+
+
+$scope module ad $end
+$var wire 6 # funct [5:0] $end
+$var wire 3 2 aluop [2:0] $end
+$var wire 4 1 alucontrol [3:0] $end
+$var wire 1 $ multstart $end
+$var wire 1 % multsign $end
+$var wire 1 & aluormult $end
+$var wire 1 ' lohi $end
+$var reg 4 1 internal_ctrl [3:0] $end
+$var reg 1 $ int_multstart $end
+$var reg 1 % int_multsign $end
+$var reg 1 & int_aluormult $end
+$var reg 1 ' int_lohi $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+
+#0
+$dumpvars
+1!
+x&
+x'
+x%
+x$
+x(
+x)
+x*
+x-
+x.
+x/
+x0
+b010 2
+b10100000000010 3
+b000000 #
+bxxxx 1
+b000000 "
+bxx +
+bxx ,
+$end
+1(
+0)
+0*
+0-
+0.
+0/
+00
+b00 +
+b01 ,
+#5
+b000100 "
+0!
+b00000100000001 3
+0(
+10
+b00 ,
+b001 2
+b0110 1
+0$
+0%
+0&
+0'
+#10
+b001111 "
+1!
+b10010000000000 3
+1(
+00
+b10 +
+b000 2
+b0010 1
+#15
+b001110 "
+0!
+b10001000000101 3
+b01 +
+b101 2
+b0100 1
+#20
+b000000 "
+b101000 #
+1!
+b10100000000010 3
+b00 +
+b01 ,
+b010 2
+b0101 1
+#25
+b011000 #
+0!
+b0000 1
+1$
+1%
+#30
+b001010 #
+1!
+0$
+0%
+1&
+1'
+#35
+b000101 "
+b000000 #
+0!
+b00000100001001 3
+0(
+1/
+10
+b00 ,
+b001 2
+bxxxx 1
+b0110 1
+0&
+0'
+#40
+b000011 "
+1!
+b11000000110000 3
+1(
+1-
+1.
+0/
+00
+b10 ,
+b000 2
+b0010 1
+#45
+b000000 "
+b001010 #
+0!
+b10100000000010 3
+0-
+0.
+b01 ,
+b010 2
+b0000 1
+1&
+1'

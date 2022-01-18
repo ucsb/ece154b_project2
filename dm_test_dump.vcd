@@ -1,0 +1,92 @@
+$date
+	Mon Jan 17 22:15:44 2022
+$end
+
+$version
+	Synopsys VCS version Q-2020.03-SP2-6_Full64
+$end
+
+$timescale
+	1ps
+$end
+
+$comment Csum: 1 04ff66273c6c2a91 $end
+
+
+$scope module imem $end
+$var wire 6 ! Address [5:0] $end
+$var wire 32 " ReadData [31:0] $end
+$upscope $end
+
+
+$scope module DM_TEST $end
+$var reg 1 # clk $end
+$var reg 1 $ rst $end
+$var reg 1 % we $end
+$var reg 32 & addr [31:0] $end
+$var reg 32 ' wd [31:0] $end
+$var wire 32 ( rd [31:0] $end
+
+$scope module DUT $end
+$var wire 1 # CLK $end
+$var wire 1 $ RST $end
+$var wire 1 % WriteEnable $end
+$var wire 32 & Address [31:0] $end
+$var wire 32 ' WriteData [31:0] $end
+$var wire 32 ( ReadData [31:0] $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+
+#0
+$dumpvars
+1#
+1$
+x%
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx &
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx (
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx '
+bzzzzzz !
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx "
+$end
+#5
+0#
+#10
+1#
+#15
+0#
+#20
+0$
+b00000000000000000000000000000000 &
+b00000000000000000000000000000001 '
+0%
+1#
+#25
+0#
+#30
+b00000000000000000000000001111111 &
+1#
+#35
+0#
+#40
+b00000000000000000000000000001111 '
+1%
+1#
+b00000000000000000000000000001111 (
+#45
+0#
+#50
+b00000000000000000000000000000000 &
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx (
+0%
+1#
+#53
+b00000000000000000000000001111111 &
+b00000000000000000000000000001111 (
+#55
+0#
+#60
+b00000000000000000000000000000000 &
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx (
