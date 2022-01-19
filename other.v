@@ -149,7 +149,7 @@ module multserial(input wire CLK,
     reg msgn; //used to store signed or unsigned, as we need it for the last bit of calculation
   	reg [31:0] A, B;
     reg [63:0] P, T; //product and tempororary registers
-    reg [31:0] temp_b; //used to hold B, we will shift right by 1 each multiplication cycle
+  	reg [63:0] temp_b; //used to hold B, we will shift right by 1 each multiplication cycle
     reg prodv;
   	assign PRODV = prodv;
   	assign PROD = P;
@@ -158,24 +158,39 @@ module multserial(input wire CLK,
   		B <= SRCB;
         case (state)
             0: begin //MST was received previous cycle, load registers and go to multiply state (1)
-                P <= 0;
+                P <= 64'b0;
                 prodv <= 1'b0;
-                temp_b <= B;
-              	T[31:0] <= A;
-                T[63:32] <= 32'b0; //each iteration we shift to the right, so that each row of multiplication is calculated correctly
-                state <=1;
+              	if(B < A)begin
+              		temp_b[31:0] <= B;
+                  	T[31:0] <= A;
+                end else begin
+                  	temp_b[31:0] <= A;
+                  	T[31:0] <= B;
+                end
+              	if(msgn) begin
+                  /*if(temp_b[31] == 1'b1) begin
+                    temp_b[63:32] = 32'b11111111111111111111111111111111;
+                  end else*/ begin
+                    temp_b[63:32] <= 32'b0;
+                  end
+                  if(T[31] == 1'b1) begin
+                    T[63:32] <= 32'b11111111111111111111111111111111;
+                  end else begin
+                    T[63:32] <= 32'b0;
+                  end
+                  state <= 1;
+                end else begin
+                  T[63:32] <= 32'b0; //each iteration we shift to the right, so that each row of multiplication is calculated correctly
+                  temp_b[63:32] <= 32'b0;
+                  state <=1;
+                end
             end
             1: begin //calculating product
                 if(RST) begin //go to reset state
                     state <= 4;
                 end else begin
-                    if(temp_b[0] == 1'b1) begin
-                        if(temp_b == 1 && msgn) begin //last bit of B is sign bit so must subtract to ensure correct calculation
-                            P <= P - T;
-                            state <= 2; 
-                        end else begin //either unsigned or not last bit so add to product
-                            P <= P + T;
-                        end
+                  	if(temp_b[0] == 1'b1) begin
+                        P <= P + T;
                     end else begin //value of temp_b[0] is 0 so no multiplication for this "level"
                         P <= P;
                     end
@@ -193,10 +208,8 @@ module multserial(input wire CLK,
                 if(RST) begin //reset signal
                     state <= 4;
                 end else if (MST) begin //next cycle begin multiply (load regs)
-                    state <= 1; 
+                    state <= 0; 
                   	msgn <= MSGN;
-  					A <= SRCA;
-  					B <= SRCB;
                 end else begin //default state
                     state <= 3;
                 end
@@ -205,10 +218,8 @@ module multserial(input wire CLK,
                 if(RST) begin  //reset state sends us to 4
                     state <= 4;
                 end else if(MST) begin //next cycle begin multiply
-                    state <= 1;
+                    state <= 0;
                   	msgn <= MSGN;
-  					A <= SRCA;
-  					B <= SRCB;
                 end else begin 
                     state <= 3;
                 end
@@ -222,8 +233,6 @@ module multserial(input wire CLK,
                 if(MST) begin
                     state <= 0;
                   	msgn <= MSGN;
-  					A <= SRCA;
-  					B <= SRCB;
                 end
                 else begin
                     state <= 3;
@@ -233,10 +242,8 @@ module multserial(input wire CLK,
               if(RST) begin  //reset state sends us to 4
                     state <= 4;
                 end else if(MST) begin //next cycle begin multiply
-                    state <= 1;
+                    state <= 0;
                   	msgn <= MSGN;
-  					A <= SRCA;
-  					B <= SRCB;
                 end else begin 
                     state <= 3;
                 end
