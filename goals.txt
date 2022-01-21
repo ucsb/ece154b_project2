@@ -1,7 +1,5 @@
 things to do:
 
-create 5 registers for each level to connect
-create mips top module
-wire everything together
-run and view waveforms of tests
+make changes for jal, pass through registers
+
 create interesting program

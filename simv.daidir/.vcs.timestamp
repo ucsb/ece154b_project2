@@ -1,5 +1,5 @@
 0 
-23
+32
 -Mamsrun=
 -Masflags=
 -Mcc=gcc
@@ -22,13 +22,22 @@
 -picarchive
 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/bin/vcs1
 controller.v
-control_test.v
+datapath.v
+hazard.v
+mem.v
+mips.v
+mult.v
+other.v
+regfile.v
+ALU.v
+top.v
+mips_test.v
 34
 XDG_SESSION_TYPE=tty
-XDG_SESSION_ID=55182
+XDG_SESSION_ID=56213
 XDG_SESSION_CLASS=user
 XDG_RUNTIME_DIR=/run/user/1002
-VSCODE_IPC_HOOK_CLI=/run/user/1002/vscode-ipc-384c8dd8-f5b1-42a4-adb3-c9ceedf04216.sock
+VSCODE_IPC_HOOK_CLI=/run/user/1002/vscode-ipc-8e7b60d5-55b9-4aef-969d-fa9d8c7f24dd.sock
 VSCODE_GIT_IPC_HANDLE=/run/user/1002/vscode-git-d65ed40675.sock
 VSCODE_GIT_ASKPASS_NODE=/home/brianli/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
 VSCODE_GIT_ASKPASS_MAIN=/home/brianli/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
@@ -45,8 +54,8 @@ UNAME=/bin/uname
 TOOL_HOME=/tools/synopsys/vcs/Q-2020.03-SP2-6/linux64
 TERM_PROGRAM_VERSION=1.63.2
 TERM_PROGRAM=vscode
-SSH_CONNECTION=72.194.31.169 55840 128.111.41.159 22
-SSH_CLIENT=72.194.31.169 55840 22
+SSH_CONNECTION=72.194.31.169 61045 128.111.41.159 22
+SSH_CLIENT=72.194.31.169 61045 22
 SCRNAME=vcs
 SCRIPT_NAME=vcs
 PITON_ROOT=/home/brianli/openpiton
@@ -59,13 +68,22 @@ COLORTERM=truecolor
 BASH_FUNC_vcs%%=() {  command vcs -full64 "$@"_}
 ARIANE_ROOT=/home/brianli/openpiton/piton/design/chip/tile/ariane
 0
-2
-1642492627 control_test.v
-1642492873 controller.v
+11
+1642757670 mips_test.v
+1642751502 top.v
+1642525153 ALU.v
+1642493164 regfile.v
+1642757330 other.v
+1642750823 mult.v
+1642750732 mips.v
+1642525153 mem.v
+1642757535 hazard.v
+1642757468 datapath.v
+1642748073 controller.v
 4
 1622777002 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libvirsim.so
 1622776735 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/liberrorinf.so
 1622776695 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libsnpsmalloc.so
 1622776730 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libvfs.so
-1642492876 simv.daidir
+1642757673 simv.daidir
 -1 partitionlib

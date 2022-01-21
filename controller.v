@@ -5,19 +5,21 @@ module controller(input         clk, rst,
                   input         equalD, flushE,
                   output        regwriteW, memtoregW, jalW,
                   output        regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
-                  output        regwriteE, memtoregE, jalE, memwriteE, aluormultE, lohiE,
+                  output        regwriteE, memtoregE, jalE, 
                   output        multstartE, multsignE,
                   output  [3:0] alucontrolE,
                   output  [1:0] alusrcE, regdstE,
                   output        branchD, jumpD, pcsrcD);
 
+
     //defining internal control signal
     //decode signals
-    wire regwriteD, memwriteD, branchD, memtoregD, multstartD, multsignD, aluormultD, lohiD;
+    wire       regwriteD, memwriteD, memtoregD, multstartD, multsignD, aluormultD, lohiD;
     wire [1:0] alusrcD, regdstD;
-    wire jumpD, jalD, bneD,
+    wire       jalD, bneD;
     wire [2:0] aluopD;
     wire [3:0] alucontrolD;
+    wire       lohiE, memwriteE, aluormultE;
 
     //declare main decoder and alu decoder modules
     maindec md(opD, regwriteD, memwriteD, branchD, memtoregD, alusrcD, regdstD, jumpD, jalD, bneD, aluopD);

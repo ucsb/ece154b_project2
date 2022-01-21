@@ -1,9 +1,21 @@
 {
-    "CONTROL_TEST": [
-        "CONTROL_TEST",
-        "cPY6A",
+    "flopr_0002": [
+        "flopr_0002",
+        "d28BB",
         "module",
-        5
+        11
+    ],
+    "cflopr_0000": [
+        "cflopr_0000",
+        "zH3Rd",
+        "module",
+        12
+    ],
+    "MIPS_TEST": [
+        "MIPS_TEST",
+        "y4HgN",
+        "module",
+        13
     ],
     "...MASTER...": [
         "SIM",

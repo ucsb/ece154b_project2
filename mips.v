@@ -1,27 +1,35 @@
 `timescale 1ps/1ps
 
 module mips(input         clk, rst,
+            input  [31:0] instrF, readdataM,
             output [31:0] pcF,
-            input  [31:0] instrF,
             output        memwriteM,
-            output [31:0] aluoutM, writedataM,
-            input         readdataM);
+            output [31:0] alumultoutM, writedataM);
 
-    wire        regwriteW, memtoregW, jalW,
-    wire        regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
-    wire        regwriteE, memtoregE, jalE, memwriteE, aluormultE, lohiE,
-    wire        multstartE, multsignE,
-    wire  [3:0] alucontrolE,
-    wire  [1:0] alusrcE, regdstE,
-    wire        branchD, jumpD, pcsrcD); 
+    wire [5:0] opD, fnD;
+    wire equalD, flushE, regwriteW, memtoregW, jalW,
+         regwriteM, memtoregM, jalM, lohiM,
+         regwriteE, memtoregE, jalE, multstartE, multsignE,
+         branchD, jumpD, pcsrcD;
+    wire [1:0] alusrcE, regdstE;
+    wire [3:0] alucontrolE;
     
-    controller c(clk, rst, opD, fnD, equalD, flushE, regwriteW, memtoregW, jalW,
-                 regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
-                 regwriteE, memtoregE, jalE, memwriteE, aluormultE, lohiE,
-                 multstartE, multsignE,
-                 alucontrolE,
-                 alusrcE, regdstE,
-                 branchD, jumpD, pcsrcD);
+    controller c(clk, rst, opD, fnD, equalD, flushE,
+                  regwriteW, memtoregW, jalW,
+                  regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
+                  regwriteE, memtoregE, jalE, 
+                  multstartE, multsignE,
+                  alucontrolE, alusrcE, regdstE,
+                  branchD, jumpD, pcsrcD);
 
-    datapath dp();
+
+    datapath dp(clk, rst, instrF,
+                regwriteW, memtoregW, jalW,
+                regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
+                regwriteE, memtoregE, jalE, multstartE, multsignE,
+                alucontrolE, alusrcE, regdstE,
+                branchD, jumpD, pcsrcD,
+                readdataM, alumultoutM, writedataM,
+                pcF, flushE, equalD,
+                opD, fnD);
 endmodule

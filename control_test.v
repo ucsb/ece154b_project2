@@ -2,6 +2,7 @@
 
 module CONTROL_TEST();
     reg clk = 0;
+    reg rst = 0;
     initial begin
         forever begin
             clk <= ~clk;
@@ -9,58 +10,68 @@ module CONTROL_TEST();
         end
     end
 
-    reg [5:0] op, fn;
-    wire        multstart, multsgn;
-    wire        aluormult, lohi;
-    wire        regwrite, memwrite, memtoreg;
-    wire  [1:0] alusrc, regdst;
-    wire        jump, jal;
-    wire        bne, branch; 
-    wire  [3:0] alucontrol;
+    reg [5:0] opD, fnD;
+    reg       equalD, flushE;
+    wire        regwriteW, memtoregW, jalW;
+    wire        regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM;
+    wire        regwriteE, memtoregE, jalE;
+    wire        multstartE, multsignE;
+    wire  [3:0] alucontrolE;
+    wire  [1:0] alusrcE, regdstE;
+    wire        branchD, jumpD, pcsrcD;
 
-    controller DUT(op, fn, multstart, multsgn, aluormult, lohi, regwrite, memwrite, memtoreg,  alusrc, regdst,
-                jump, jal, bne, branch, alucontrol);
+    controller DUT(    clk, rst,
+                  opD, fnD,
+                  equalD, flushE,
+                  regwriteW, memtoregW, jalW,
+                  regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
+                  regwriteE, memtoregE, jalE, 
+                  multstartE, multsignE,
+                  alucontrolE,
+                  alusrcE, regdstE,
+                  branchD, jumpD, pcsrcD);
 
     initial begin
         $dumpfile("controller_test_dump.vcd");
         $dumpvars;
-        op = 6'b000000;
-        fn = 6'b000000;
+        opD = 6'b000000;
+        fnD =  6'b000000;
         #5;
         //beq
-        op = 6'b000100;
-        fn = 6'b000000;
+        opD =  6'b000100;
+        fnD =  6'b000000;
         #5;
         //lui
-        op = 6'b001111;
-        fn = 6'b000000;
+        opD =  6'b001111;
+        fnD =  6'b000000;
         #5;
         //xori
-        op = 6'b001110;
-        fn = 6'b000000;
+        opD =  6'b001110;
+        fnD =  6'b000000;
         #5;
         //xnor
-        op = 6'b000000;
-        fn = 6'b101000;
+        opD =  6'b000000;
+        fnD =  6'b101000;
         #5;
         //mult
-        op = 6'b000000;
-        fn = 6'b011000;
+        opD =  6'b000000;
+        fnD =  6'b011000;
         #5;
         //mfhi
-        op = 6'b000000;
-        fn = 6'b001010;
+        opD =  6'b000000;
+        fnD =  6'b001010;
         #5;
         //bne
-        op = 6'b000101;
-        fn = 6'b000000;
+        opD =  6'b000101;
+        fnD =  6'b000000;
+        equalD = 0;
         #5;
         //jal
-        op = 6'b000011;
-        fn = 6'b000000;
+        opD =  6'b000011;
+        fnD =  6'b000000;
         #5;
-        op = 6'b000000;
-        fn = 6'b001010;
+        opD =  6'b000000;
+        fnD =  6'b001010;
         #5;
         $finish;
     end
