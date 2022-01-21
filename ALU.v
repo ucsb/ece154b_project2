@@ -21,6 +21,7 @@ module ALU (input [31:0] InA, InB, input [3:0] ALUControl, output reg [31:0] out
       3'b011 : out <= {31'b0, S[31]};   //SLT
       3'b100 : out <= InA ^ BB;         //XOR
       3'b101 : out <= ~(InA ^ BB);      //XNOR
+      default: out <= 32'hxxxxxxxx;     //illegal instruction
     endcase
   end 
   

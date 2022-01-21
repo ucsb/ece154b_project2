@@ -27,10 +27,5 @@ module imem(input   [5:0]  Address,
 
   reg [31:0] RAM[63:0];
 
-  initial
-    begin
-      $readmemh("memfile.dat",RAM); // initialize memory with test program. Change this with memfile2.dat for the modified code
-    end
-
   assign ReadData = RAM[Address]; // word aligned
 endmodule

@@ -18,11 +18,10 @@ module MIPS_TEST();
     initial begin
         $dumpfile("top_test_dump.vcd");
         $dumpvars;
-        $readmemh("memfile.dat",MIPS_TEST.DUT.imem.RAM); // initialize memory with test program. Change this with memfile2.dat for the modified code
         rst = 1;
         #20;
         rst = 0;
-        #100;
+        #50;
         $finish;
     end
 endmodule

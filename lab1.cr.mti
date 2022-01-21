@@ -1,26 +1,95 @@
-/fs/student/brianli/ece154b/ece154b_project1/other.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/other.v
+/fs/student/brianli/ece154b/ece154b_project1/alu_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/alu_test.v
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
--- Compiling module controller
--- Compiling module maindec
--- Compiling module aludec
--- Compiling module regfile
--- Compiling module adder
--- Compiling module sl2
--- Compiling module immgen
--- Compiling module flopr
--- Compiling module mux2
+-- Compiling module ALU_TEST
 
 Top level modules:
-	controller
-	regfile
+	ALU_TEST
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/hazard.v {0 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/hazard.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module hazard
+** Error: (vlog-13069) /fs/student/brianli/ece154b/ece154b_project1/hazard.v(45): near "assign": syntax error, unexpected assign.
+
+} {4.0 5.0} {}} /fs/student/brianli/ece154b/ece154b_project1/mult.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mult.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module multserial
+
+Top level modules:
+	multserial
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/other.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/other.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module adder
+-- Compiling module sl2
+-- Compiling module sl16
+-- Compiling module signext
+-- Compiling module equal
+-- Compiling module flopr
+-- Compiling module cflopr
+-- Compiling module eflopr
+-- Compiling module ecflopr
+-- Compiling module mux2
+-- Compiling module mux3
+
+Top level modules:
 	adder
 	sl2
-	immgen
+	sl16
+	signext
+	equal
 	flopr
+	cflopr
+	eflopr
+	ecflopr
 	mux2
+	mux3
 
-} {} {}} /fs/student/brianli/ece154b/ece154b_project1/mem_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mem_test.v
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/top.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/top.v
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/rf_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/rf_test.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module RF_TEST
+
+Top level modules:
+	RF_TEST
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/mult_tb.v {0 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mult_tb.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+** Error: (vlog-13069) /fs/student/brianli/ece154b/ece154b_project1/mult_tb.v(3): near "1": syntax error, unexpected INTEGER NUMBER.
+** Error: /fs/student/brianli/ece154b/ece154b_project1/mult_tb.v(3): (vlog-13205) Syntax error found in the scope following 'timescale'. Is there a missing '::'?
+
+} {3.0 5.0} {}} /fs/student/brianli/ece154b/ece154b_project1/mips_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mips_test.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module MIPS_TEST
+
+Top level modules:
+	MIPS_TEST
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/control_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/control_test.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module CONTROL_TEST
+
+Top level modules:
+	CONTROL_TEST
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/dm_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/dm_test.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module DM_TEST
+
+Top level modules:
+	DM_TEST
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/mips.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mips.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module mips
+
+Top level modules:
+	mips
 
 } {} {}} /fs/student/brianli/ece154b/ece154b_project1/ALU.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/ALU.v
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
@@ -28,6 +97,32 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
 
 Top level modules:
 	ALU
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/controller.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/controller.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module controller
+-- Compiling module maindec
+-- Compiling module aludec
+
+Top level modules:
+	controller
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/im_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/im_test.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module IM_TEST
+
+Top level modules:
+	IM_TEST
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/regfile.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/regfile.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/mem_test.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mem_test.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
 
 } {} {}} /fs/student/brianli/ece154b/ece154b_project1/mem.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/mem.v
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
@@ -37,5 +132,12 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
 Top level modules:
 	dmem
 	imem
+
+} {} {}} /fs/student/brianli/ece154b/ece154b_project1/datapath.v {1 {vlog -work work -vopt -stats=none /fs/student/brianli/ece154b/ece154b_project1/datapath.v
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 22 2018
+-- Compiling module datapath
+
+Top level modules:
+	datapath
 
 } {} {}}
