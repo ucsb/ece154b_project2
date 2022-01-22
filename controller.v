@@ -6,6 +6,7 @@ module controller(input         clk, rst,
                   output        regwriteW, memtoregW, jalW,
                   output        regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
                   output        regwriteE, memtoregE, jalE, 
+                  output        aluormultE, jalD, 
                   output        multstartE, multsignE,
                   output  [3:0] alucontrolE,
                   output  [1:0] alusrcE, regdstE,
@@ -16,10 +17,10 @@ module controller(input         clk, rst,
     //decode signals
     wire       regwriteD, memwriteD, memtoregD, multstartD, multsignD, aluormultD, lohiD;
     wire [1:0] alusrcD, regdstD;
-    wire       jalD, bneD;
+    wire       bneD;
     wire [2:0] aluopD;
     wire [3:0] alucontrolD;
-    wire       lohiE, memwriteE, aluormultE;
+    wire       lohiE, memwriteE;
 
     //declare main decoder and alu decoder modules
     maindec md(opD, regwriteD, memwriteD, branchD, memtoregD, alusrcD, regdstD, jumpD, jalD, bneD, aluopD);
@@ -104,8 +105,8 @@ module aludec(input     [5:0]   funct,
                         6'b101010: begin internal_ctrl <= 4'b1011; int_multstart <= 0; int_multsign <= 0; int_aluormult <= 0; int_lohi <= 0; end //slt
                         6'b011000: begin internal_ctrl <= 4'b0000; int_multstart <= 1; int_multsign <= 1; int_aluormult <= 0; int_lohi <= 0; end //mult
                         6'b011001: begin internal_ctrl <= 4'b0000; int_multstart <= 1; int_multsign <= 0; int_aluormult <= 0; int_lohi <= 0; end //multu
-                        6'b001100: begin internal_ctrl <= 4'b0000; int_multstart <= 0; int_multsign <= 0; int_aluormult <= 1; int_lohi <= 0; end//mflo
-                        6'b001010: begin internal_ctrl <= 4'b0000; int_multstart <= 0; int_multsign <= 0; int_aluormult <= 1; int_lohi <= 1; end//mfhi
+                        6'b010010: begin internal_ctrl <= 4'b0000; int_multstart <= 0; int_multsign <= 0; int_aluormult <= 1; int_lohi <= 0; end//mflo
+                        6'b010000: begin internal_ctrl <= 4'b0000; int_multstart <= 0; int_multsign <= 0; int_aluormult <= 1; int_lohi <= 1; end//mfhi
                         default:   internal_ctrl <= 4'bxxxx; //illegal
                     endcase
             3'b011: begin internal_ctrl <= 4'b0001; int_multstart <= 0; int_multsign <= 0; int_aluormult <= 0; int_lohi <= 0; end //ORI

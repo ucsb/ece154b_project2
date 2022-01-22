@@ -4,6 +4,7 @@ module hazard(input regwriteW, regwriteM, memtoregM,
               input [4:0] writeregW, writeregM, writeregE,
               input regwriteE, memtoregE, branchD,
               input [4:0] rsE, rtE, rsD, rtD,
+              input jalD, jalE, jalM, aluormultE, prodv, jumpD, 
               output [1:0] forwardAE, forwardBE,
               output forwardAD, forwardBD, stallD, stallF, flushE);
 
@@ -43,7 +44,7 @@ module hazard(input regwriteW, regwriteM, memtoregM,
                          (branchD & memtoregM & (writeregM == rsD | writeregM == rtD));
     assign jalstall = jalE | jalM;
     assign multstall = aluormultE & ~prodv;
-    assign flushE = lwstall | branchstall | multstall | (jumpD & ~jalD);
-    assign stallD = flushE | jalstall;
+    assign flushE = lwstall | branchstall | (jumpD & ~jalD) | jalstall;
+    assign stallD = flushE | jalstall | multstall;
     assign stallF = stallD;
 endmodule

@@ -5,10 +5,10 @@ module datapath(input        clk, rst,
                 input        regwriteW, memtoregW, jalW,
                 input        regwriteM, memtoregM, jalM, memwriteM, aluormultM, lohiM,
                 input        regwriteE, memtoregE, jalE, 
-                input        multstartE, multsignE,
+                input        multstartE, multsignE, aluormultE,
                 input  [3:0] alucontrolE,
                 input  [1:0] alusrcE, regdstE,
-                input        branchD, jumpD, pcsrcD,
+                input        branchD, jumpD, pcsrcD, jalD,
                 input  [31:0]readdataM,
                 output [31:0]alumultoutM, writedataM, pcF,
                 output       flushE, equalD,
@@ -44,10 +44,10 @@ module datapath(input        clk, rst,
     assign rdD = instrD[15:11];
     assign flushD = (jumpD | pcsrcD);
     
-    ecflopr #(32) RD1(clk, rst, ~stallD, flushD, instrF, instrD);
+    eflopr #(32) RD1(clk, rst, ~stallD, instrF, instrD);
     ecflopr #(32) RD2(clk, rst, ~stallD, flushD, pcplus4F, pcplus4D);
 
-    mux2 #(32) jalmux(resultW, pcplus4W, jalW, wd3); //need to fix pcplus4D
+    mux2 #(32) jalmux(resultW, pcplus4W, jalW, wd3);
     signext se(instrD[15:0], signimmD);
     sl2 signimmsh(signimmD, signimmshD);
     sl16 lui(instrD[15:0], luiD);
@@ -103,6 +103,7 @@ module datapath(input        clk, rst,
              writeregW, writeregM, writeregE,
              regwriteE, memtoregE, branchD,
              rsE, rtE, rsD, rtD,
+             jalD, jalE, jalM, aluormultE, prodVE, jumpD, 
              forwardAE, forwardBE,
              forwardAD, forwardBD, stallD, stallF, flushE);
 endmodule

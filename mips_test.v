@@ -3,6 +3,8 @@
 module MIPS_TEST();
     reg clk = 0;
     reg rst = 0;
+
+    integer duration = 0;
     initial begin
         forever begin
             clk <= ~clk;
@@ -22,7 +24,14 @@ module MIPS_TEST();
         rst = 1;
         #20;
         rst = 0;
-        #100;
+        while(duration < 2000)begin
+            $display(duration);
+            $display("MIPS_TEST.DUT.mips.dp.rf.rf[9] = ", MIPS_TEST.DUT.mips.dp.rf.rf[9]);
+            duration = duration + 100;
+            #100;
+        end
+        $display("done");
+        $display("MIPS_TEST.DUT.mips.dp.rf.rf[9] = ", MIPS_TEST.DUT.mips.dp.rf.rf[9]);
         $finish;
     end
 endmodule
