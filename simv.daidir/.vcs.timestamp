@@ -1,0 +1,89 @@
+0 
+32
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/tools/synopsys/vcs/Q-2020.03-SP2-6/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -Wl,--no-as-needed -rdynamic
+-Mobjects= /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libvirsim.so /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/liberrorinf.so /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libsnpsmalloc.so /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/tools/synopsys/vcs/Q-2020.03-SP2-6/include
+-Mxllcflags=
+-full64
+-gen_obj
+-picarchive
+/tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/bin/vcs1
+controller.v
+datapath.v
+hazard.v
+mem.v
+mips.v
+mult.v
+other.v
+regfile.v
+ALU.v
+top.v
+mips_test.v
+34
+XDG_SESSION_TYPE=tty
+XDG_SESSION_ID=56692
+XDG_SESSION_CLASS=user
+XDG_RUNTIME_DIR=/run/user/1002
+VSCODE_IPC_HOOK_CLI=/run/user/1002/vscode-ipc-439942c5-3e08-4541-ac1a-89e71f66072e.sock
+VSCODE_GIT_IPC_HANDLE=/run/user/1002/vscode-git-d65ed40675.sock
+VSCODE_GIT_ASKPASS_NODE=/home/brianli/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+VSCODE_GIT_ASKPASS_MAIN=/home/brianli/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+VMR_MODE_FLAG=64
+VERDI_HOME=/tools/synopsys/verdi/Q-2020.03-SP2-7
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_HOME=/tools/synopsys/vcs/Q-2020.03-SP2-6
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/tools/synopsys/vcs/Q-2020.03-SP2-6/linux64
+TERM_PROGRAM_VERSION=1.63.2
+TERM_PROGRAM=vscode
+SSH_CONNECTION=172.251.225.112 60078 128.111.41.159 22
+SSH_CLIENT=172.251.225.112 60078 22
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+PITON_ROOT=/home/brianli/openpiton
+OVA_UUM=0
+MOTD_SHOWN=pam
+LC_ALL=C
+GIT_ASKPASS=/home/brianli/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1002/bus
+COLORTERM=truecolor
+BASH_FUNC_vcs%%=() {  command vcs -full64 "$@"_}
+ARIANE_ROOT=/home/brianli/openpiton/piton/design/chip/tile/ariane
+0
+11
+1642836805 mips_test.v
+1642751502 top.v
+1642809572 ALU.v
+1642493164 regfile.v
+1642757330 other.v
+1642750823 mult.v
+1642810138 mips.v
+1642809572 mem.v
+1642833985 hazard.v
+1642833552 datapath.v
+1642815915 controller.v
+4
+1622777002 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libvirsim.so
+1622776735 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/liberrorinf.so
+1622776695 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libsnpsmalloc.so
+1622776730 /tools/synopsys/vcs/Q-2020.03-SP2-6/linux64/lib/libvfs.so
+1642836811 simv.daidir
+-1 partitionlib

@@ -1,0 +1,5 @@
+things to do:
+
+make changes for jal, pass through registers
+
+create interesting program
