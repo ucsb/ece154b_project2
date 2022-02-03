@@ -15,10 +15,8 @@ module multserial(input wire CLK,
     reg [63:0] P, T; //product and tempororary registers
   	reg [31:0] temp_b; //used to hold B, we will shift right by 1 each multiplication cycle
     reg prodv;
-
   	assign PRODV = prodv;
   	assign PROD = P;
-      
   	always @(posedge CLK or RST) begin
       	if(RST) begin
           temp_b <= 0;
