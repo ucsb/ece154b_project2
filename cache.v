@@ -21,15 +21,14 @@ always(@ posedge CLK) begin
             outputData == [addr[12:2]]mem[83:52];
         end else if([addr[12:2]]mem[51] && addr[31:13] == [addr[12:2]]mem[50:32]) begin
             outputData == [addr[12:2]]mem[31:0];
-        end else begin //if we are here both tags dont match, so checking U bit will tell us which block must be replaced
-            if([addr[12:2]mem[104]) begin //block 1 is LRU
-
-            end else begin //either block 0 is LRU or contains no information 
-
-            end
+        end //both tags don't match, time to select which block to replace
+    end else begin //block isn't in cache, need to fetch and writeback
+        //need to fetch from mem first
+        if([addr[12:2]mem[104]) begin //block 1 is LRU
+            //place fetched block into block/way 1
+        end else begin //either block 0 is LRU or contains no information 
+            //place fetched block into block/way 0
         end
-    end else begin //block isn't in cache, fetch from mem and insert according to set, checking U bit for LRU
-
     end
 endmodule
 
