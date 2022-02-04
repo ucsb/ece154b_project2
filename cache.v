@@ -11,20 +11,22 @@ module cache(input wire [31:0] in,
 
 reg [31:0] addr;
 reg [31:0] outputData;
-reg [2047:0] mem [104:0]; //declaration of 2-d array 2048x105? not sure how to declare in verilog
+reg [104:0] mem [2047:0]; //declaration of 2-d array 2048x105? not sure how to declare in verilog
 assign addr = in;
 always(@ posedge CLK) begin
     //check if cache has mem specified by set (addr[12:2]), to do this we check valid bits
-    if([addr[12:2]]mem[103] || addr[12:2]mem[51]) begin //again idk if this is correct syntax
+    if(mem[addr[12:2]][103] || mem[addr[12:2]][51]) begin //again idk if this is correct syntax
         //now we need to check if the tags of each entry match addr[31:13]
-        if([addr[12:2]]mem[103] && addr[31:13] == [addr[12:2]]mem[102:84]) begin
-            outputData == [addr[12:2]]mem[83:52];
-        end else if([addr[12:2]]mem[51] && addr[31:13] == [addr[12:2]]mem[50:32]) begin
-            outputData == [addr[12:2]]mem[31:0];
+        if(mem[addr[12:2]][103] && addr[31:13] == mem[addr[12:2]][102:84]) begin
+            outputData <= mem[addr[12:2]][83:52];
+            mem[addr[12:2]][104] <= 1'b0; //setting U to 0
+        end else if(mem[addr[12:2]][51] && addr[31:13] == mem[addr[12:2]][50:32]) begin
+            outputData <= mem[addr[12:2]][31:0];
+            mem[addr[12:2]][104] <= 1'b1; //setting U to 1
         end //both tags don't match, time to select which block to replace
     end else begin //block isn't in cache, need to fetch and writeback
         //need to fetch from mem first
-        if([addr[12:2]mem[104]) begin //block 1 is LRU
+        if(mem[addr[12:2]][104]) begin //block 1 is LRU
             //place fetched block into block/way 1
         end else begin //either block 0 is LRU or contains no information 
             //place fetched block into block/way 0
