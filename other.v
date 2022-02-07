@@ -29,44 +29,48 @@ module flopr #(parameter WIDTH=8)
               (input  wire             clk, reset,
                input  wire [WIDTH-1:0] d,
                output reg [WIDTH-1:0] q);
-    
+    reg [WIDTH-1:0] mem;
     always @(posedge clk or posedge reset) begin //asynchronous reset flip-flop
-        if(reset) q <= 0;
-        else      q <= d;
+        if(reset) mem <= 0;
+        else      mem <= d;
     end
+    assign q = mem;
 endmodule
 
 module cflopr #(parameter WIDTH=8)
               (input  wire             clk, reset, clr,
                input  wire [WIDTH-1:0] d,
                output reg [WIDTH-1:0] q);
-    
+    reg [WIDTH-1:0] mem;
     always @(posedge clk or posedge reset) begin //clearable asynchronous reset flip-flop
-        if(reset || clr) q <= 0;
-        else             q <= d;
+        if(reset || clr) mem <= 0;
+        else             mem <= d;
     end
+    assign q = mem;
 endmodule
 
 module eflopr #(parameter WIDTH=8)
               (input  wire             clk, reset, en,
                input  wire [WIDTH-1:0] d,
                output reg [WIDTH-1:0] q);
-    
+    reg [WIDTH-1:0] mem;
     always @(posedge clk or posedge reset) begin //enable asynchronous reset flip-flop
-        if(reset)        q <= 0;
-        else if(en)      q <= d;
+        if(reset)        mem <= 0;
+        else if(en)      mem <= d;
     end
+    assign q = mem;
 endmodule
 
 module ecflopr #(parameter WIDTH=8)
               (input  wire             clk, reset, en, clr,
                input  wire [WIDTH-1:0] d,
                output reg [WIDTH-1:0] q);
-    
+    reg [WIDTH-1:0] mem;
     always @(posedge clk or posedge reset) begin //enable, clearable asynchronous reset flip-flop
-        if(reset || clr) q <= 0;
-        else if(en)      q <= d;
+        if(reset || clr) mem <= 0;
+        else if(en)      mem <= d;
     end
+    assign q = mem;
 endmodule
 
 module mux2 #(parameter WIDTH=8)

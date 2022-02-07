@@ -7,10 +7,12 @@ Inst Cache Design: 2-way SA, Block Size: 128 bits, 2^8 sets
 Inst Cache 32-bit addr breakdown: Tag: 20 bits, Set: 8 bits, Block offset: 2 bits, Byte Offset: 2 bits
 Inst Cache Size = (u(1) + v(2) + tag(40) + inst(256)) * 2^8 = 2^8(299) = 76,544 Bit Area, given 89,088 bits
 unused bits: 12,544 / 262,144 = 4.8% unused*/
+`timescale 1ps/1ps
 
 module dCache(input wire [31:0] in,
             input wire CLK,
-            output wire [31:0] out);
+            output wire [31:0] out,
+            output             valid);
 
     reg [31:0] addr;
     reg [31:0] outputData;
