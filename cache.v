@@ -3,7 +3,7 @@ logical blocks needed for this design: equality comparator, and/or gate, multipl
 Data Cache Design: 2-way SA, Block Size: 64 bits, 2^10 sets
 Data Cache 32-bit addr breakdown: Tag: 19 bits, Index/Set: 10 bits, Block Offset: 1 bit, Byte Offset: 2 bits
 Data Cache size = (u(1) + v(2) + tag(38) + data(128)) * 2^10 = 2^10(169) = 173,056 Bit Area, given 262,144 bits
-Inst Cache Design: 2-way SA, Block Size: 128 bits, 2^8 sets
+Inst Cache Design: Direct Mapped, Block Size: 128 bits, 2^9 sets
 Inst Cache 32-bit addr breakdown: Tag: 19 bits, Set: 9 bits, Block offset: 2 bits, Byte Offset: 2 bits
 Inst Cache Size = (v(1) + tag(19) + inst(128)) * 2^9 = 2^9(148) = 75776 Bit Area, given 89,088 bits
 unused bits: 12,544 / 262,144 = 5.07% unused*/
@@ -100,12 +100,11 @@ module iCache(input wire [31:0] in,
         end else begin //block isn't in cache, need to fetch and writeback
             v <= 0;
             //need to fetch from mem first
-            #20; //we be waiting/either block 0 is LRU or contains no information 
+            #21; //waiting for data fetch from mem, additional cycle for reg loading
             if(dready) begin
                 mem[addr[12:4]][147] <= 1'b1;
                 mem[addr[12:2]][146:128] <= addr[31:13];
                 mem[addr[12:4]][127:0] <= inputData;
-                //place fetched block into block/way 0
             end
         end
     end
