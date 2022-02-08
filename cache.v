@@ -10,6 +10,8 @@ unused bits: 12,544 / 262,144 = 4.8% unused*/
 `timescale 1ps/1ps
 
 module dCache(input wire [31:0] in,
+            input wire [63:0] datain,
+            input wire dready,
             input wire CLK,
             output wire [31:0] out1,
             output wire [31:0] out2,
@@ -18,8 +20,12 @@ module dCache(input wire [31:0] in,
     reg [31:0] addr;
     reg [31:0] outputData1;
     reg [31:0] outputData2;
+    reg [63:0] inputData;   
+    reg v;
     reg [168:0] mem [1023:0]; //declaration of 2-d array 1024x169? not sure how to declare in verilog
     assign addr = in;
+    assign inputData = datain;
+    assign valid = v;
     always(@ posedge CLK) begin
         //check if cache has mem specified by set (addr[12:3]), to do this we check valid bits
         if(mem[addr[12:3]][167] || mem[addr[12:3]][83]) begin //again idk if this is correct syntax
@@ -34,11 +40,23 @@ module dCache(input wire [31:0] in,
                 mem[addr[12:3]][168] <= 1'b1; //setting U to 1
             end //both tags don't match, time to select which block to replace
         end else begin //block isn't in cache, need to fetch and writeback
+            valid <= 0;
             //need to fetch from mem first
+            #20;
             if(mem[addr[12:3]][168]) begin //block 1 is LRU
-                //place fetched block into block/way 1
+                //place fetched block into block/way 1, use dready
+                if(dready) begin 
+                    mem[addr[12:3]][167] <= 1'b1;
+                    mem[addr[12:3]][166:148] <= addr[31:13];
+                    mem[addr[12:3]][147:84] <= inputData;
+                    mem[addr[12:3]][168] <= 1'b0;
             end else begin //either block 0 is LRU or contains no information 
                 //place fetched block into block/way 0
+                if(dready) begin
+                    mem[addr[12:3]][167] <= 1'b1;
+                    mem[addr[12:3]][82:64] <= addr[31:13];
+                    mem[addr[12:3]][63:0] <= inputData;
+                    mem[addr[12:3]][168] <= 1'b1;
             end
         end
     end
