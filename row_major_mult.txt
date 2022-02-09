@@ -1,0 +1,83 @@
+lui s0, 0x0000 //vector
+andi s0 s0 0x0010
+lui s1 0x0000 //matrix
+andi s0 s0 0x0024
+lui s2 0x0000 //vector product
+andi s2 s2 0x00F0
+lui t0 0x0000 //t0 used to place values and mult vector
+andi t0 t0 0x0017 
+lui t1 0xFFFF //t1 is used by matrix 2x4
+andi t1 t1 0xFF10
+
+sw t0 0x0(s0) //1
+sw t1 0x0(s1) //1x1
+addi t0 t0 0x0005
+addi t1 t1 0x008B
+sw t0 0x4(s0) //2
+sw t1 0x4(s1) //1x2
+addi t0 t0 0x32
+addi t1 t1 0x22
+sw t0 0x8(s0) //3 
+sw t1 0x8(s1) //1x3
+addi t0 t0 0x03
+addi t1 t1 0x1a
+sw t0 0xC(s0) //4
+sw t1 0x8(s0) //1x4
+addi t0 t0 0x13
+addi t1 t1 0x03
+sw t0 0x10(s1) //2x1
+sw t1 0x14(s1) //2x2
+addi t0 t0 0x09
+addi t1 t1 0x0F
+sw t0 0x18(s1) //2x3
+sw t0 0x1C(s1) //2x4 
+
+lw t0 0x0(s0)
+lw t1 0x0(s1)
+mult t1 t0
+lw t0 0x4(s0) //loading next mult 2nd
+lw t1 0x4(s1) 
+mflo t2
+sw t2 0x0(s2) //storing into mem 1st entry
+mult t1 t0
+lw t0, 0x8(s0) //loading 3rd
+lw t1, 0x8(s1)
+mflo t2
+sw t2 0x4(s2) //storing 2nd
+mult t1 t0
+lw t0 0xC(s0) //loading 4th 
+lw t1 0xC(s1)
+mflo t2
+sw t2 0x8(s2) //storing 3rd
+mult t1 t0
+lw t0 0x0(s0) //loading 2x1
+lw t1 0x10(s1)
+mflo t2
+sw t2 0xC(s2) //storing 4th
+mult t1 t0 //now we're multiplying through the second row
+lw t0 0x4(s0) //loading 2x2
+lw t1 0x14(s1)
+lw t2 0x0(s2) //loading 1st prod
+mflo t3
+add t2 t2 t3 //add to column prod
+mult t1 t0 //mult 2nd
+sw t2 0x0(s2) //store back in 1st
+lw t0 0x8(s0) //loading 2x3
+lw t1 0x18(s1)
+lw t2 0x4(s2)
+mflo t3
+add t2 t2 t3
+mult t1 t0 //mult 3rd
+sw t2 0x4(s2) //store back in 2nd
+lw t0 0xC(s0) //loading 2x4
+lw t1 0x1C(s1)
+lw t2 0x8(s2)
+mflo t3
+add t2 t2 t3
+mult t1 t0 //mult 4th
+sw t2 0x8(s2) //store back in 3rd
+lw t2 0xC(s2)
+mflo t3
+add t2 t2 t3
+sw t2 0xC(s2) //store back in 4th
+//completed mult stored in memory address contained by s2
